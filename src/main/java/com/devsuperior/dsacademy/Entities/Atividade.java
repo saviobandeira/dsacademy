@@ -1,7 +1,18 @@
 package com.devsuperior.dsacademy.Entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +25,19 @@ public class Atividade {
     private String name;
     private String descricao;
     private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    @ManyToMany
+    @JoinTable(name = "tb_atividade_participante",
+            joinColumns = @JoinColumn(name = "atividade_id"),
+            inverseJoinColumns = @JoinColumn(name = "participante_id"))
+    private Set<Participante> participantes = new HashSet<>();
+
+    @OneToMany(mappedBy = "atividade")
+    private Set<Bloco> blocos = new HashSet<>();
 
     public Atividade() {
     }
@@ -55,6 +79,22 @@ public class Atividade {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public Set<Bloco> getBlocos() {
+        return blocos;
     }
 
     @Override
