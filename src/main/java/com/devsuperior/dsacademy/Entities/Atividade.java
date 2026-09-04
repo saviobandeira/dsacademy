@@ -22,9 +22,9 @@ public class Atividade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String nome;
     private String descricao;
-    private Double price;
+    private Double preco;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -44,9 +44,9 @@ public class Atividade {
 
     public Atividade(Integer id, String name, String descricao, Double price) {
         this.id = id;
-        this.name = name;
+        this.nome = name;
         this.descricao = descricao;
-        this.price = price;
+        this.preco = price;
     }
 
     public Integer getId() {
@@ -57,12 +57,12 @@ public class Atividade {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String name) {
+        this.nome = name;
     }
 
     public String getDescricao() {
@@ -73,12 +73,12 @@ public class Atividade {
         this.descricao = descricao;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPreco(Double price) {
+        this.preco = price;
     }
 
     public Categoria getCategoria() {
