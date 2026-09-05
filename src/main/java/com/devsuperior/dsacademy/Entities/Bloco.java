@@ -29,10 +29,11 @@ public class Bloco {
     public Bloco() {
     }
 
-    public Bloco(Integer id, Instant inicio, Instant fim) {
+    public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade) {
         this.id = id;
         this.inicio = inicio;
         this.fim = fim;
+        this.atividade = atividade;
     }
 
     public Integer getId() {
