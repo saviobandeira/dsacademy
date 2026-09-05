@@ -42,11 +42,12 @@ public class Atividade {
     public Atividade() {
     }
 
-    public Atividade(Integer id, String name, String descricao, Double price) {
+    public Atividade(Integer id, String name, String descricao, Double price, Categoria categoria) {
         this.id = id;
         this.nome = name;
         this.descricao = descricao;
         this.preco = price;
+        this.categoria = categoria;
     }
 
     public Integer getId() {
